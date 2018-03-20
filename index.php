@@ -28,6 +28,8 @@
 		{
 			if($_GET["action"]=="users")
 				include("root/users.php");
+			if($_GET["action"]=="settings")
+				include("root/settings.php");
 		}
 		if($_GET["mode"]=="root" && in_array("CANDIDATE", $priv))
 		{

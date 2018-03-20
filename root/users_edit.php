@@ -7,12 +7,12 @@
         $pword = hash("sha256",addslashes($_POST["pword"]));
         $section = $_POST["section"];
         $voted = (isset($_POST["voted"]))?1:0;
-        $priv = implode(",", $_POST["priv"]);
+        $priv1 = implode(",", $_POST["priv"]);
 
         if($_POST["pword"] == "")
-            mysqli_query($conn,"UPDATE `user` SET `name`='$fullname' , `username`='$username' , `section`='$section' , `priv`='$priv' , `voted` = '$voted' WHERE `id`=$_GET[user]");
+            mysqli_query($conn,"UPDATE `user` SET `name`='$fullname' , `username`='$username' , `section`='$section' , `priv`='$priv1' , `voted` = '$voted' WHERE `id`=$_GET[user]");
         else
-            mysqli_query($conn,"UPDATE `user` SET `password`='$pword',`name`='$fullname' , `username`='$username' , `section`='$section' , `priv`='$priv' , `voted` = '$voted' WHERE `id`=$_GET[user]");
+            mysqli_query($conn,"UPDATE `user` SET `password`='$pword',`name`='$fullname' , `username`='$username' , `section`='$section' , `priv`='$priv1' , `voted` = '$voted' WHERE `id`=$_GET[user]");
     }
 
 

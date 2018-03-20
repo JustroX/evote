@@ -5,3 +5,4 @@
 <script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
 <script src="./assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
 <script src="./assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
+<script src="./assets/js/timepicker.js" type="text/javascript"></script>
