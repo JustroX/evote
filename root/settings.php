@@ -63,7 +63,7 @@
 	</form>
 </div>
 <script type="text/javascript">
-var party_list = <?php echo json_encode($es["parties"]) ?>;
+var party_list = <?php echo json_encode($es["parties"]) ?> || [];
 function display_party()
 {
 	var str = "";
@@ -71,7 +71,7 @@ function display_party()
 	{
 		str+="<li><a href=\"#!\" onclick=\"remove_party("+i+")\"> <i class=\"now-ui-icons ui-1_simple-remove\"></i> </a>"+" "+party_list[i]+" </li>";
 	}
-	document.getElementById('party').innerHTML += JSON.stringify(party_list);
+	document.getElementById('party').value = JSON.stringify(party_list);
 	document.getElementById('party_list').innerHTML = str;
 }
 function add_party()
@@ -90,7 +90,7 @@ function remove_party(i)
 display_party();
 
 
-var positions = <?php echo json_encode($es["positions"]) ?>;
+var positions = <?php echo json_encode($es["positions"]) ?> || [];
 
 function display_position()
 {

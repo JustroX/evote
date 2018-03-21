@@ -84,7 +84,7 @@
                             <?php if(isset($error)): ?>
                             <div class="alert alert-danger" role="alert">
                                 <div class="container"> 
-                                   Account doesn't exist
+                                   Wrong username and password combination
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">
                                             <i class="now-ui-icons ui-1_simple-remove"></i>

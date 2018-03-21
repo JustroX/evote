@@ -1,1 +1,1 @@
-{"voting":true,"fuzz":true,"parties":null,"positions":[{"name":"President","count":1},{"name":"Vice President","count":1},{"name":"Treasurer","count":1}]}
+{"voting":false,"fuzz":true,"parties":["fgreg","egsgr"],"positions":[{"name":"President","count":1},{"name":"Vice President","count":1},{"name":"Treasurer","count":1},{"name":"rgeiohh","count":"1"}]}
