@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2018 at 10:17 AM
+-- Generation Time: Mar 21, 2018 at 02:33 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -63,6 +63,18 @@ INSERT INTO `user` (`id`, `username`, `password`, `name`, `section`, `priv`, `vo
 (5, 'jromero', '2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824', 'Justine Che T. Romero', 'physics12', 'ROOT', 1),
 (7, 'xthan18', '9db7f463979f6f1570a35ad56105dfe18dc122cf68573d3376658b4048072a06', 'Chryz Than Wolf G. Chavez', 'physics12', 'ROOT,CANDIDATE,VOTE', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vote`
+--
+
+CREATE TABLE `vote` (
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `candidate` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -82,6 +94,14 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `vote`
+--
+ALTER TABLE `vote`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `candidate` (`candidate`),
+  ADD KEY `user` (`user`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -98,6 +118,12 @@ ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `vote`
+--
+ALTER TABLE `vote`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -106,6 +132,13 @@ ALTER TABLE `user`
 --
 ALTER TABLE `candidate`
   ADD CONSTRAINT `candidate_ibfk_1` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `vote`
+--
+ALTER TABLE `vote`
+  ADD CONSTRAINT `vote_ibfk_1` FOREIGN KEY (`candidate`) REFERENCES `candidate` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `vote_ibfk_2` FOREIGN KEY (`user`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
