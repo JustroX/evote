@@ -20,7 +20,6 @@
 <br><br>
 <div class="section">
 	<?php if(isset($_GET["mode"]) && isset($_GET["action"])): ?>
-	
 
 
 	<?php 
@@ -31,45 +30,62 @@
 			if($_GET["action"]=="settings")
 				include("root/settings.php");
 		}
+		else
 		if($_GET["mode"]=="root" && in_array("CANDIDATE", $priv))
 		{
 			if($_GET["action"]=="users")
 				include("candidate/users.php");
 		}
+		else
+		if($_GET["mode"]=="election" && in_array("VOTE", $priv))
+		{
+			if($_GET["action"]=="vote")
+				include("election/vote.php");
+		}
+		else
+			$disp = true;
 	 ?>
 
-	<?php else: ?>
+	 <?php 
+	 	else:
+	 		$disp = true;
+	 	endif;
+	  ?>
+
+	<?php if(isset($disp)): ?>
 	
 
-	<div class="container">
-		<br><br><br>
-		<h1>PSHS Voting System</h1>
-		<h7>You are logged in as <i><?php echo $user["name"]; ?></i></h7>
-	</div>
-	<div class="container">
-		<?php if(in_array("ROOT", $priv)): ?>
-		<h4>Root Operations</h4>
-		<ul>
-			<li><a href="index.php?mode=root&action=users">Users</a></li>
-			<li><a href="index.php?mode=root&action=settings">Election Settings</a></li>
-		</ul>	
-		<?php endif;?>
-	
+		<div class="container">
+			<br><br><br>
+			<h1>PSHS Voting System</h1>
+			<h7>You are logged in as <i><?php echo $user["name"]; ?></i></h7>
+		</div>
+		<div class="container">
+			
 
-		<h4>Candidate Options</h4>
-		<ul>
-			<li><a href="#!">Edit Profile</a></li>
-		</ul>
-	
+			<?php if(in_array("ROOT", $priv)): ?>
+			<h4>Root Operations</h4>
+			<ul>
+				<li><a href="index.php?mode=root&action=users">Users</a></li>
+				<li><a href="index.php?mode=root&action=settings">Election Settings</a></li>
+			</ul>	
+			<?php endif;?>
+		
+
+			<h4>Candidate Options</h4>
+			<ul>
+				<li><a href="#!">Edit Profile</a></li>
+			</ul>
+		
 
 
-		<h4>Election</h4>
-		<ul>
-			<li><a href="#!">Vote</a></li>
-			<li><a href="#!">Candidates</a></li>
-			<li><a href="#!">Partial Results</a></li>
-		</ul>		
-	</div>
+			<h4>Election</h4>
+			<ul>
+				<li><a href="index.php?mode=election&action=vote">Vote</a></li>
+				<li><a href="#!">Candidates</a></li>
+				<li><a href="#!">Partial Results</a></li>
+			</ul>		
+		</div>
 	<?php endif; ?>
 
 </div>

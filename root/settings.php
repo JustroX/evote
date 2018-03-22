@@ -20,6 +20,7 @@
 
 <br><br>
 <div class="container">
+	<a href="index.php">Home</a> > Settings <br><br>
 	<h1>Election Settings</h1>
 	<br><br>
 	<form method="post" action="index.php?mode=root&action=settings&sub=1" onkeypress="return event.keyCode != 13;">
