@@ -1,1 +1,1 @@
-{"voting":false,"fuzz":true,"parties":["fgreg","egsgr"],"positions":[{"name":"President","count":1},{"name":"Vice President","count":1},{"name":"Treasurer","count":1},{"name":"rgeiohh","count":"1"}]}
+{"voting":false,"fuzz":true,"parties":["Party A","Party B","Party C"],"positions":[{"name":"President","count":1},{"name":"Vice President","count":1},{"name":"Secretary","count":"1"},{"name":"Business Manager","count":"2"}]}

@@ -145,7 +145,6 @@
 	</table>
 </div>
 
-<?php }; ?>
 
 
 <!-- Modal Core -->
@@ -175,3 +174,4 @@ function update(arr)
 	document.getElementById('modal-submit').innerHTML = str;
 }
 </script>
+<?php }; ?>
