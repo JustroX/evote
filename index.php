@@ -31,10 +31,10 @@
 				include("root/settings.php");
 		}
 		else
-		if($_GET["mode"]=="root" && in_array("CANDIDATE", $priv))
+		if($_GET["mode"]=="candidate" && in_array("CANDIDATE", $priv))
 		{
-			if($_GET["action"]=="users")
-				include("candidate/users.php");
+			if($_GET["action"]=="profile")
+				include("candidate/profile.php");
 		}
 		else
 		if($_GET["mode"]=="election" && in_array("VOTE", $priv))
@@ -78,7 +78,7 @@
 
 			<h4>Candidate Options</h4>
 			<ul>
-				<li><a href="#!">Edit Profile</a></li>
+				<li><a href="index.php?mode=candidate&action=profile">Edit Profile</a></li>
 			</ul>
 		
 
