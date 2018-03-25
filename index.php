@@ -75,20 +75,23 @@
 			</ul>	
 			<?php endif;?>
 		
-
+			<?php if(in_array("CANDIDATE", $priv)): ?>
 			<h4>Candidate Options</h4>
 			<ul>
 				<li><a href="index.php?mode=candidate&action=profile">Edit Profile</a></li>
 			</ul>
+			<?php endif;?>
 		
 
 
+			<?php if(in_array("VOTE", $priv)): ?>
 			<h4>Election</h4>
 			<ul>
 				<li><a href="index.php?mode=election&action=vote">Vote</a></li>
 				<li><a href="#!">Candidates</a></li>
 				<li><a href="#!">Partial Results</a></li>
 			</ul>		
+			<?php endif;?>
 		</div>
 	<?php endif; ?>
 

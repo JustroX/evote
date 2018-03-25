@@ -14,7 +14,7 @@
 	if(isset($_GET["grade"]) && isset($_GET["section"]))
 	{
 		$section  = $_GET["section"];
-		$users_rows = mysqli_query($conn,"SELECT * FROM `user` WHERE `section`='$section'");
+		$users_rows = mysqli_query($conn,"SELECT * FROM `user` WHERE `section`='$section' ORDER BY `name` ");
 	}
 
 	if(isset($_GET["sub"]))
