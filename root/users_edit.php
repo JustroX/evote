@@ -9,6 +9,9 @@
         $voted = (isset($_POST["voted"]))?1:0;
         $priv1 = implode(",", $_POST["priv"]);
 
+        if($voted == 0)
+            mysqli_query($conn,"DELETE FROM `vote` WHERE `user`=$_GET[user]");
+
         if($_POST["pword"] == "")
             mysqli_query($conn,"UPDATE `user` SET `name`='$fullname' , `username`='$username' , `section`='$section' , `priv`='$priv1' , `voted` = '$voted' WHERE `id`=$_GET[user]");
         else

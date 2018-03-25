@@ -41,6 +41,10 @@
 		{
 			if($_GET["action"]=="vote")
 				include("election/vote.php");
+			if($_GET["action"]=="success")
+				include("election/success.php");
+			if($_GET["action"]=="failed")
+				include("election/failed.php");
 		}
 		else
 			$disp = true;
