@@ -114,7 +114,7 @@
                 document.write(new Date().getFullYear())
             </script>
             &nbsp
-            Justine Che T. Romero
+            Justine Che T. Romero & Chryz Than Wolf G. Chavez
         </div>
     </div>
 </footer>

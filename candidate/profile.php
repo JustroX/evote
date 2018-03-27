@@ -8,7 +8,8 @@
 		$position=$_POST['position'];
 		$details=addslashes($_POST['details']);
 		$party=$_POST['party'];
-		mysqli_query($conn,"INSERT INTO `candidate` (user,name,position,details,party) VALUES ('$USER','$name','$position','$details','$party') ");
+		mysqli_query($conn,"INSERT INTO `candidate` (user,position,details,party) VALUES ('$USER','$position','$details','$party') ");
+        echo mysqli_error($conn);
 	}
 ?>
 
