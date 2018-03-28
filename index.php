@@ -33,8 +33,11 @@
 		else
 		if($_GET["mode"]=="candidate" && in_array("CANDIDATE", $priv))
 		{
-			if($_GET["action"]=="profile")
-				include("candidate/profile.php");
+			if($_GET["action"]=="profile_view")
+				include("candidate/profile_view.php");
+			if($_GET["action"]=="profile_edit")
+				include("candidate/profile_edit.php");
+
 		}
 		else
 		if($_GET["mode"]=="election" && in_array("VOTE", $priv))
@@ -78,7 +81,7 @@
 			<?php if(in_array("CANDIDATE", $priv)): ?>
 			<h4>Candidate Options</h4>
 			<ul>
-				<li><a href="index.php?mode=candidate&action=profile">Edit Profile</a></li>
+				<li><a href="index.php?mode=candidate&action=profile_view">View Profile</a></li>
 			</ul>
 			<?php endif;?>
 		
