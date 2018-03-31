@@ -19,10 +19,13 @@
 <?php include("navbar.php") ?>
 <br><br>
 <div class="section">
-	<?php if(isset($_GET["mode"]) && isset($_GET["action"])): ?>
+	<?php 
+	if(isset($_GET["mode"]) && isset($_GET["action"])): 
+		?>
 
 
 	<?php 
+		
 		if($_GET["mode"]=="root" && in_array("ROOT", $priv))
 		{
 			if($_GET["action"]=="users")
