@@ -48,6 +48,10 @@
 				include("election/success.php");
 			if($_GET["action"]=="failed")
 				include("election/failed.php");
+			if($_GET["action"]=="candidates")
+				include("election/candidates.php");
+			if($_GET["action"]=="view")
+				include("election/view.php");
 		}
 		else
 			$disp = true;
@@ -91,7 +95,7 @@
 			<h4>Election</h4>
 			<ul>
 				<li><a href="index.php?mode=election&action=vote">Vote</a></li>
-				<li><a href="#!">Candidates</a></li>
+				<li><a href="index.php?mode=election&action=candidates">Candidates</a></li>
 				<li><a href="#!">Partial Results</a></li>
 			</ul>		
 			<?php endif;?>
