@@ -15,8 +15,14 @@
             $voted = (isset($_POST["voted"]))?1:0;
             $priv = implode(",", $_POST["priv"]);
 
-
             mysqli_query($conn,"INSERT INTO `user` (name,username,password,section,voted,priv) VALUES ('$fullname','$username','$pword','$section','$voted','$priv') ");  
+            
+            if(in_array("CANDIDATE", $_POST["priv"]))
+            {
+                $last_id = $conn->insert_id;
+                mysqli_query($conn,"INSERT INTO `candidate` (`user`) VALUES ($last_id)");    
+            }
+
             $notif="User added successfully";
         }
     }

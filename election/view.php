@@ -1,4 +1,5 @@
 <?php 
+header("LOCATION: profile.php?candidate=".$_GET["id"]);
 $cand = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `candidate` WHERE `user`=$_GET[id]"));
 ?>
 

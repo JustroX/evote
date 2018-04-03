@@ -4,21 +4,51 @@
 ?>
 
 <div class="container">
-	<?php 
-	foreach ($es["parties"] as $party) {
-		echo "<h1>" . $party . "</h1>";
-		foreach ($es["positions"] as $key) {
-			$pos = $key["name"];
-			echo "<h3>" . $pos . "</h3><ul>";
-			$cand = mysqli_query($conn,"SELECT `user` FROM `candidate` WHERE `party`='$party' AND `position`='$pos'");
-			while($row = mysqli_fetch_assoc($cand)){
-				$u = $row["user"];
-				echo "<li><a href='index.php?mode=election&action=view&id=" . $u . "'>" . mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `user` WHERE `id`='$u'"))["name"] . "</a></li>";
-			}
-			echo "</ul>";
-		}
-	}
-	?>
+	<a href="index.php">Home</a> > Candidates <br><br>
+	<h1>Candidates</h1>
+	<p>View all Candidates</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Position</th>
+				<?php foreach ($es["parties"] as $party) 
+				{
+				?>
+				<th><?php echo $party ?></th>
+				<?php
+				} ?>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($es["positions"] as $key)
+			{
+			?>
+			<tr>
+				<th><?php echo $key["name"] ?></th>
+				<?php 
+					foreach ($es["parties"] as $party)
+					{
+						?>
+						<td>
+							<?php 
+								$cand = mysqli_query($conn,"SELECT `user` FROM `candidate` WHERE `party`='$party' AND `position`='$key[name]'");
+								while($row = mysqli_fetch_assoc($cand)){
+									$u = $row["user"];
+									$label = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `user` WHERE `id`='$u'"))["name"];
+								?>
+								<a href='index.php?mode=election&action=view&id=<?php echo $u ?>'><?php echo $label ?></a><br>
+								<?php
+								}
+							 ?>	
+						</td>
+						<?php
+					}
+				 ?>
+			</tr>
+			<?php
+			} ?>
+		</tbody>
+	</table>
 </div>
 
 <!-- TODO: DESIGN AND CAPITALIZATION -->

@@ -24,16 +24,18 @@
         <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#!">Candidates</a>
+                    <a class="nav-link" href="candidates.php">Candidates</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#!">Partial Results</a>
                 </li>
                 <li class="nav-item">
+                    <?php if(isset($_COOKIE["id"])): ?>
                     <form id="logout-form" method="post" action="login.php">
                         <input type="number" name="logout" value="1" hidden>
                         <a onclick = "document.getElementById('logout-form').submit()" class="nav-link" href="#">Logout</a>
                     </form>
+                <?php endif;?>
                 </li>
             </ul>
         </div>

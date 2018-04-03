@@ -16,6 +16,12 @@
             mysqli_query($conn,"UPDATE `user` SET `name`='$fullname' , `username`='$username' , `section`='$section' , `priv`='$priv1' , `voted` = '$voted' WHERE `id`=$_GET[user]");
         else
             mysqli_query($conn,"UPDATE `user` SET `password`='$pword',`name`='$fullname' , `username`='$username' , `section`='$section' , `priv`='$priv1' , `voted` = '$voted' WHERE `id`=$_GET[user]");
+
+
+        if(in_array("CANDIDATE", $_POST["priv"]) && mysqli_num_rows(mysqli_query($conn,"SELECT * FROM `candidate` WHERE `user`=$_GET[user]"))==0)
+        {
+            mysqli_query($conn,"INSERT INTO `candidate` (`user`) VALUES ($_GET[user])");    
+        }
     }
 
 

@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="navbar-translate">
-                <a class="navbar-brand" href="#!" rel="tooltip" title="Voting platform for PSHS-BRC" data-placement="bottom" target="_blank">
+                <a class="navbar-brand" href="#!" rel="tooltip" title="Voting platform for PSHS-BRC" data-placement="bottom" >
                     PSHS-BRC VOTING PLATFORM
                 </a>
                 <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#!">Candidates</a>
+                        <a class="nav-link" href="candidates.php">Candidates</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#!">Partial Results</a>

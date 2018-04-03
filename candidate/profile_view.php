@@ -9,8 +9,23 @@
 		$position=$_POST['position'];
 		$details=addslashes($_POST['details']);
 		$party=$_POST['party'];
-		mysqli_query($conn,"UPDATE `candidate` SET user='$USER',position='$position',details='$details',party='$party' WHERE `user`='$a'");
-        echo mysqli_error($conn);
+
+        $str = "";
+
+        if($_FILES["profpic"]['tmp_name']!="")
+        {
+            $imagename=$_FILES["profpic"]["name"]; 
+            $imagetmp=addslashes (file_get_contents($_FILES['profpic']['tmp_name']));
+    		mysqli_query($conn,"UPDATE `candidate` SET user='$USER',position='$position',details='$details',party='$party',imagename='$imagename',image='$imagetmp' WHERE `user`='$a'");
+            echo mysqli_error($conn);
+        }
+        else
+        {
+            mysqli_query($conn,"UPDATE `candidate` SET user='$USER',position='$position',details='$details',party='$party' WHERE `user`='$a'");
+            echo mysqli_error($conn);   
+        }           
+
+       
 	}
 
     $temp = mysqli_query($conn,"SELECT * FROM `candidate` WHERE `user`='$a'");
@@ -21,25 +36,34 @@
 <div class="container">
 	<a href="index.php">Home</a> > Profile <br><br>
 	<h1>Your Profile</h1>
-	<br>
-        <div class="col-sm-6 col-lg-3">
-            <div class="form-group">
-                <h6 for="sel1">Position</h6>
-                <?php echo $temp['position']?>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="form-group">
-                <h6 for="sel2">Party</h6>
-                <?php echo $temp['party']?>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="form-group">
-                <h6>Bio</h6>
-                <?php echo $temp['details']?>
-            </div>
-        </div>
+    <p>
+        This information will be visible to your voters.
+    </p>
         <br>
+        <h4>Profile Picture</h4>
+        <img src="candidate/fetchimage.php?candidate=<?php echo $a ?>" width=100 height=100 >
+        <br><br><br>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td><?php echo $user['name'] ?></td>
+                </tr>
+                <tr>
+                    <th>Position</th>
+                    <td><?php echo ucwords($temp['position'])?></td>
+                </tr>
+                <tr>
+                    <th>Party</th>
+                    <td><?php echo ucwords($temp['party'])?></td>
+                </tr>
+            </tbody>
+        </table>
+        <blockquote>
+            <h4>Bio</h4>
+            <p class="blockquote blockquote-primary">
+                " <?php echo $temp['details']?>"
+            </p>
+        </blockquote>
         <a href="index.php?mode=candidate&action=profile_edit" class="btn btn-primary">Edit</a>
 </div>
