@@ -87,27 +87,15 @@
                     </div>
                     <h3 class="title"><?php echo mysqli_fetch_assoc(mysqli_query($conn,"SELECT `name` FROM `user` WHERE `id`=$_GET[candidate]"))["name"] ?></h3>
                     <p class="category"><?php echo $cand["position"] ?></p>
-                    <div class="content">
-                        <div class="social-description">
-                            <h2>26</h2>
-                            <p>Comments</p>
-                        </div>
-                        <div class="social-description">
-                            <h2>26</h2>
-                            <p>Comments</p>
-                        </div>
-                        <div class="social-description">
-                            <h2>48</h2>
-                            <p>Bookmarks</p>
-                        </div>
-                    </div>
+                   
+                   
                 </div>
             </div>
         </div>
         <div class="section">
             <div class="container">
                 <div class="button-container">
-                    <a href="#button" class="btn btn-primary btn-round btn-lg"><?php echo ucfirst($cand["party"]) ?></a>
+                    <a href="#button" class="btn btn-primary btn-round btn-lg"><?php echo ucwords($cand["party"]) ?></a>
                     
                 </div>
                 <h3 class="title">About me</h3>

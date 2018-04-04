@@ -136,7 +136,7 @@
 					
 					<td style="width: 30%">
 						<p>
-						<img style="width: 16%" src="candidate/fetchimage.php?candidate=<?php echo $c["user"] ?>" class="rounded-circle"> 
+						<img width="40px" height="40px" src="candidate/fetchimage.php?candidate=<?php echo $c["user"] ?>" class="rounded-circle"> 
 						&nbsp&nbsp&nbsp&nbsp
 						<?php echo $c["name"] ?>	
 						</p>
