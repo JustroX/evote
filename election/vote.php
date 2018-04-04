@@ -1,6 +1,13 @@
 <?php 
     $json = file_get_contents('settings.json');
     $es = json_decode($json,true);
+    echo $VOTING_ENABLED;
+    if(!$VOTING_ENABLED)
+    {
+        header("LOCATION: index.php?mode=election&action=failed&closed=1");
+        die();
+    }
+    else
     if(mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `user` WHERE `id`=$_COOKIE[id]"))["voted"]==1)
        header("LOCATION: index.php?mode=election&action=failed"); 
 

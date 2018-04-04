@@ -1,5 +1,11 @@
 <?php 
 	include("conn.php");
+	
+	$json = file_get_contents('settings.json');
+	$es = json_decode($json,true);
+
+	$VOTING_ENABLED = $es["voting"];
+	$VOTING_FUZZED = $es["fuzz"];
 ?>
 
 <!DOCTYPE html>

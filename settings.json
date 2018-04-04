@@ -1,1 +1,1 @@
-{"voting":false,"fuzz":false,"parties":["Party A","Party B"],"positions":[{"name":"President","count":"2"},{"name":"Vice President","count":"1"}]}
+{"voting":true,"fuzz":true,"parties":["Party A","Party B"],"positions":[{"name":"President","count":"2"},{"name":"Vice President","count":"1"}]}

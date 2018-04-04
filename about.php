@@ -1,9 +1,12 @@
 <?php 
 	include("conn.php");
 	// get priveledges
+	if(!isset($_COOKIE["id"]))
+		header("LOCATION: login.php");
 	$user = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `user` WHERE `id`=$_COOKIE[id]"));
 	$priv = array_map("trim", explode(",", $user["priv"]));
-	
+
+
 	$json = file_get_contents('settings.json');
 	$es = json_decode($json,true);
 
@@ -19,37 +22,29 @@
 </head>
 <body class="sidebar-collapse">
 <?php include("navbar.php") ?>
-<br><br>
+<div class="section"></div>
 <div class="section">
 	<div class="container">
-		<br><br><br>
-		<h1>PSHS Voting System</h1>
-		<h7>You are logged in as <i><?php echo $user["name"]; ?></i></h7>
-	</div>
-	<div class="container">
-		<?php if(in_array("ROOT", $priv)): ?>
-		<h4>Root Operations</h4>
-		<ul>
-			<li><a href="#!">Users</a></li>
-			<li><a href="#!">Election Settings</a></li>
-		</ul>	
-		<?php endif;?>
-	
+		<h2>About Us</h2>
+		<p>
+			Philippine Science High School - Bicol Region Campus <br>
+			Tagontong, Goa, Camarines Sur <br>
+			Goa, Bicol Region 4422 <br>
+			Philippines <br>
+		</p>
 
-		<h4>Candidate Options</h4>
+		<h4>	Chryz Than Wolf G. Chavez	</h4>
 		<ul>
-			<li><a href="#!">Edit Profile</a></li>
+			<li>ctgchavez@brc.pshs.edu.ph</li>
 		</ul>
-	
-
-
-		<h4>Election</h4>
+		
+		<h4>	Justine Che T. Romero	</h4>
 		<ul>
-			<li><a href="#!">Vote</a></li>
-			<li><a href="#!">Candidates</a></li>
-			<li><a href="#!">Partial Results</a></li>
-		</ul>		
+			<li>jctromero@brc.pshs.edu.ph</li>
+		</ul>
 	</div>
+</div>
+
 </div>
 <br><br>
 <footer class="footer">
@@ -69,7 +64,7 @@
                 document.write(new Date().getFullYear())
             </script>
             &nbsp
-            Justine Che T. Romero
+            Justine Che T. Romero & Chryz Than Wolf G. Chavez
         </div>
     </div>
 </footer>

@@ -7,6 +7,12 @@
     {
         die("Forbidden");
     }
+    
+    $json = file_get_contents('settings.json');
+    $es = json_decode($json,true);
+
+    $VOTING_ENABLED = $es["voting"];
+    $VOTING_FUZZED = $es["fuzz"];
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +65,11 @@
                         <a class="nav-link" href="index.php?mode=election&action=candidates">Candidates</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!">Partial Results</a>
+                    <?php if($VOTING_ENABLED): ?>
+                        <a class="nav-link" href="results.php">Partial Results</a>
+                    <?php else: ?>
+                           <a class="nav-link" href="results.php">Results</a>
+                    <?php endif; ?>
                     </li>
                 </ul>
             </div>
@@ -97,7 +107,7 @@
         <div class="section">
             <div class="container">
                 <div class="button-container">
-                    <a href="#button" class="btn btn-primary btn-round btn-lg"><?php echo $cand["party"] ?></a>
+                    <a href="#button" class="btn btn-primary btn-round btn-lg"><?php echo ucfirst($cand["party"]) ?></a>
                     
                 </div>
                 <h3 class="title">About me</h3>

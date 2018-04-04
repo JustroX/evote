@@ -4,9 +4,19 @@
     $a = $user['id'];
 
 	if(isset($_GET["submit"])){
+        //if wala pa
+
+        if(mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) AS count FROM `candidate` WHERE `user` = $a"))["count"]==0)
+        {
+            echo mysqli_error($conn);
+            mysqli_query($conn,"INSERT INTO `candidate` (`user`) VALUES ($a)");
+            echo mysqli_error($conn);
+        }
+
+
 		$USER=$user['id'];
-		$name=addslashes($user['name']);
-		$position=$_POST['position'];
+		$name= addslashes($user['name']);
+		$position=ucwords($_POST['position']);
 		$details=addslashes($_POST['details']);
 		$party=$_POST['party'];
 

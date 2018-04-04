@@ -58,9 +58,30 @@
 			<tbody id="tbody">
 			</tbody>
 		</table>
+		<hr>
+		
+
+
 		<input type="text" name="positions" hidden id="position">
 		<button class="btn btn-primary">Save</button>
 		<a href="index.php" class="btn btn-simple">Cancel</a>
+	</form>
+	<br><br><br>
+	<form action="root/resetdata.php" method="post">
+		<input type="text" name="honeypot" value="faoihfoigrgboibroihuqwehqwuib123245" hidden>	
+        <blockquote>
+            <p class="blockquote blockquote-primary">
+            	<big>Reset Data</big> <br>
+            	<small>Please proceed with caution.</small> <br><br>
+                This action will: <br>
+                1. Remove all votes from the database <br>
+                2. Clear all candidates <br>
+                3. Reset all voter's voting status <br>
+                <br>
+                <button class="btn btn-primary">RESET ELECTION</button>
+                <br>
+            </p>
+        </blockquote>
 	</form>
 </div>
 <script type="text/javascript">

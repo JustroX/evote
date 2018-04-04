@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="navbar-translate">
-            <a class="navbar-brand" href="index.php" rel="tooltip" title="Voting platform for PSHS-BRC" data-placement="bottom" target="_blank">
+            <a class="navbar-brand" href="index.php" rel="tooltip" title="Voting platform for PSHS-BRC" data-placement="bottom" >
                 PSHS-BRC VOTING PLATFORM
             </a>
             <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +27,11 @@
                     <a class="nav-link" href="candidates.php">Candidates</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#!">Partial Results</a>
+                    <?php if($VOTING_ENABLED): ?>
+                        <a class="nav-link" href="results.php">Partial Results</a>
+                    <?php else: ?>
+                           <a class="nav-link" href="results.php">Results</a>
+                    <?php endif; ?>
                 </li>
                 <li class="nav-item">
                     <?php if(isset($_COOKIE["id"])): ?>

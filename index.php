@@ -7,6 +7,11 @@
 	$priv = array_map("trim", explode(",", $user["priv"]));
 
 
+	$json = file_get_contents('settings.json');
+	$es = json_decode($json,true);
+
+	$VOTING_ENABLED = $es["voting"];
+	$VOTING_FUZZED = $es["fuzz"];
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +104,11 @@
 			<ul>
 				<li><a href="index.php?mode=election&action=vote">Vote</a></li>
 				<li><a href="index.php?mode=election&action=candidates">Candidates</a></li>
-				<li><a href="#!">Partial Results</a></li>
+				<?php if($VOTING_ENABLED): ?>
+					<li><a href="results.php">Partial Results</a></li>
+				<?php else: ?>
+					<li><a href="results.php">Results</a></li>
+				<?php endif; ?>
 			</ul>		
 			<?php endif;?>
 		</div>
